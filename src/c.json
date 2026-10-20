@@ -1,0 +1,21 @@
+{
+  "State Machine Pattern": {
+    "prefix": "fstate",
+    "body": [
+      "/* 状態の定義 */",
+      "typedef enum {",
+      "\t${2:STATE_INIT},",
+      "\t${1:NAME}_STATE_NUM",
+      "} ${1:NAME}_STATE;",
+      "",
+      "/* 各状態の関数ポインタ配列 */",
+      "static void (*const ${TM_FILENAME_BASE}_func[${1:NAME}_STATE_NUM])(void) = {",
+      "\t$0",
+      "};",
+      "",
+      "/* 呼び出し処理 */",
+      "${TM_FILENAME_BASE}_func[${3:state}]();"
+    ],
+    "description": "State machine using function pointer array"
+  }
+}
